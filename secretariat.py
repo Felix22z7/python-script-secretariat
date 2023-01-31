@@ -5,12 +5,13 @@ from datetime import datetime
 from os.path import exists
 from os import makedirs, rename
 from unidecode import unidecode
+import sys
 
 root = Tk()
 root.title('Secrétariat')
 root.withdraw() 
 #Document to ask
-checkList = ['Carte Identite', 'BNSSA', 'Recyclage BNSSA', 'PSE1', 'PSE2', 'Recyclage PSE', 'CRR', 'Permis Bateau', 'SSA', 'recyclage SSA']
+checkList = ['Carte Identite', 'Certificat Medical', 'BNSSA', 'Recyclage BNSSA', 'PSE1', 'PSE2', 'Recyclage PSE', 'CRR', 'Permis Bateau', 'SSA', 'recyclage SSA']
 #Set up range of Date
 todayDate = datetime.now()
 if todayDate.month < 9:
@@ -95,8 +96,8 @@ def ContinueFunction():
                 destination = f"{dest}/{pLastName}_{pFirstName}_{el}.pdf"
                 rename(src_file, destination)
             except Exception:
-                exit()
-    exit()
+                sys.exit()
+    sys.exit()
 
 selection = []
 checkListToAsk = []
@@ -113,4 +114,4 @@ B = Button(option_frame, text ="Hello", command = ContinueFunction)
 
 B.pack()
 root.mainloop()
-exit()
+sys.exit()
